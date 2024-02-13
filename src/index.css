@@ -1,1 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@font-face {
+	font-family: "circularStd";
+	src: url("./fonts/circular-std-medium-500.ttf") format("truetype");
+}
+
+body {
+	font-family: "circularStd", sans-serif;
+}
