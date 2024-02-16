@@ -1,10 +1,10 @@
-import "./App.css";
+import { Home } from "./pages";
 
 function App() {
 	return (
-		<div className="container">
-			<h1 className="text-2xl text-primary-500">Hello World</h1>
-		</div>
+		<main className="flex h-screen">
+			<Home />
+		</main>
 	);
 }
 

@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* sidebar */
+.sidebar {
+	@apply px-10 py-6 bg-white dark:bg-black text-primary-50 dark:text-white border-primary-40 border-2 rounded-md;
+}
+
+.logo-container {
+	@apply flex justify-center items-center;
+}
+
+.sidebar-header {
+	@apply text-[14px] font-semibold uppercase mb-2 tracking-wide;
+}
+
+.sidebar-premium-container {
+	@apply flex flex-col justify-center items-center gap-2 border bg-primary-30 rounded-md p-3 mt-6;
+}

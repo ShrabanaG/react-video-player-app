@@ -12,15 +12,19 @@ module.exports = {
 		},
 		extend: {
 			fontFamily: {
-				sans: ["circular-std"]
+				circular: ["circular-std", "sans-serif"]
 			},
 			colors: {
 				primary: {
 					500: "#4A148C",
-					50: "#4F2485"
+					50: "#4F2485",
+					40: "#E2DAEB",
+					30: "#E5DEED"
 				},
+
 				black: "#202135",
-				white: "#FFFFFF"
+				white: "#FFFFFF",
+				red: "#FF0000"
 			}
 		}
 	},
