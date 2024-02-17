@@ -2,9 +2,9 @@ import { Home } from "./pages";
 
 function App() {
 	return (
-		<main className="flex h-screen">
+		<div className="app">
 			<Home />
-		</main>
+		</div>
 	);
 }
 
