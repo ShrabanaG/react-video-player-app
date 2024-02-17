@@ -3,7 +3,7 @@
 @tailwind components;
 
 .topbar {
-	@apply flex px-4 py-3 gap-16 justify-end items-center border border-primary-40 rounded-md h-fit dark:bg-gray-600;
+	@apply flex flex-grow w-full px-4 py-3 gap-16 justify-end items-center border border-primary-40 rounded-md h-fit dark:bg-gray-600;
 }
 
 .topbar-upload-btn {

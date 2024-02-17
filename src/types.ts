@@ -19,6 +19,6 @@ export type SidebarMenuLinksProps = {
 };
 
 export type SidebarChannelProps = {
-	avatarInitials: string;
+	imgSrc: any;
 	label: string;
 };

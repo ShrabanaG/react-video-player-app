@@ -4,17 +4,35 @@
 
 /* sidebar */
 .sidebar {
-	@apply hidden md:block px-10 py-6 bg-white dark:bg-black text-primary-50 dark:text-white border-primary-40 border-2 rounded-md w-[250px];
+	@apply hidden md:block  relative h-screen py-14 px-8 bg-white dark:bg-lightBlack text-primary-50 dark:text-white w-[250px];
 }
 
 .logo-container {
 	@apply flex justify-center items-center;
 }
 
+.logo-container img {
+	height: auto;
+	width: 90px;
+}
+
 .sidebar-header {
-	@apply text-[14px] font-semibold uppercase mb-2 tracking-wide;
+	@apply text-[17px] font-semibold uppercase mb-4 tracking-wide;
+}
+
+.sidebar-links-label {
+	@apply text-[15px]  font-medium ml-6;
+}
+
+.sidebar-channels-avatar {
+	@apply w-6 h-6 flex items-center justify-center rounded-full bg-primary-40 text-[14px] dark:text-black dark:font-semibold;
 }
 
 .sidebar-premium-container {
-	@apply flex flex-col justify-center items-center gap-2 border bg-primary-30 rounded-md p-3 mt-6;
+	@apply flex flex-col rounded-[10px] justify-center text-center absolute items-center bottom-8 gap-2  px-3 py-6 mt-6 dark:bg-darkBlack;
+	width: calc(100% - 4rem);
+}
+
+.sidebar-premium-btn {
+	@apply rounded-full px-4 py-1 text-center uppercase text-[8px] font-bold border border-green text-green;
 }

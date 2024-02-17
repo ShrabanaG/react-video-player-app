@@ -1,58 +1,70 @@
+/* eslint-disable prettier/prettier */
 import { useState } from "react";
 import Logo from "../../assets/logo.svg";
 import { SidebarChannelProps, SidebarMenuLinksProps } from "../../types";
 import { sidebarChannelLinks, sidebarMenuLinks } from "../../constants";
-
+import { Outlet } from "react-router-dom";
 import "./sidebar.css";
+import Topbar from "../topbar/Topbar";
 
 const Sidebar = () => {
 	const [theme, setTheme] = useState("light");
 
 	document.documentElement.classList.add("dark");
-	//document.documentElement.classList.remove("dark");
+	document.documentElement.classList.remove("dark");
 
 	return (
-		<nav className="sidebar">
-			<div className="logo-container">
-				<img src={Logo} width={80} height={30} alt="video-logo" />
-			</div>
-			<div className="sidebar-links">
-				<div className="mt-12" />
-				<div className="sidebar-header">Menu</div>
-				<ul>
-					{sidebarMenuLinks.map((link: SidebarMenuLinksProps) => (
-						<li className="flex py-2" key={link.label}>
-							<span className="flex-center">{<link.icon />}</span>
-							<span className="text-[12px] font-medium ml-3 ">{link.label}</span>
-						</li>
-					))}
-				</ul>
-			</div>
-			<div className="sidebar-channels">
-				<div className="mt-6" />
-				<div className="sidebar-header">Channels</div>
-				{sidebarChannelLinks.map((eachLink: SidebarChannelProps) => {
-					return (
-						<div className="flex py-[3px]" key={eachLink.label}>
-							<span className="w-6 h-6 flex items-center justify-center rounded-full bg-primary-40 text-[6px] dark:text-black dark:font-semibold">
-								{eachLink.avatarInitials}
-							</span>
-							<span className="text-[11px] font-medium ml-3 flex-center">
-								{eachLink.label}
-							</span>
-						</div>
-					);
-				})}
-			</div>
-			<div className="sidebar-premium-container">
-				<div className="text-xs font-semibold dark:text-black">
-					Get 3 months of <br /> Premium for free
+		<div className="flex">
+			<nav className="sidebar">
+				<div className="logo-container">
+					<img src={Logo} alt="video-logo" />
 				</div>
-				<button className="rounded-full px-2 py-1 text-center uppercase text-[8px] font-bold border border-primary-500 text-primary-50">
-					Get Premium
-				</button>
+				<div className="sidebar-links mt-14">
+					<div className="sidebar-header">Menu</div>
+					<ul>
+						{sidebarMenuLinks.map((link: SidebarMenuLinksProps) => (
+							<li className="flex py-2" key={link.label}>
+								<span className="text-[20px] flex-center">{<link.icon />}</span>
+								<span className="sidebar-links-label">{link.label}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+				<div className="sidebar-channels mt-14">
+					<div className="sidebar-header">Channels</div>
+					<ul>
+					{sidebarChannelLinks.map((eachLink: SidebarChannelProps) => {
+						return (
+							<li className="flex py-2" key={eachLink.label}>
+								<span >
+									<img src={eachLink.imgSrc} alt="avatar-img" className="sidebar-channels-avatar"/>
+								</span>
+								<span className="sidebar-links-label flex-center">
+									{eachLink.label}
+								</span>
+							</li>
+						);
+					})}
+					</ul>
+				</div>
+				<div className="sidebar-premium-container">
+					<div className="text-[16px] font-semibold dark:text-white">
+						Get 3 months of <br /> Premium for free
+					</div>
+					<button className="text-[14px] mt-6 sidebar-premium-btn">
+						Get Premium
+					</button>
+				</div>
+			</nav>
+			<div className="block flex-grow">
+				<div className="flex flex-col w-full">
+					<Topbar />
+				</div>
+				<main>
+					<Outlet />
+				</main>
 			</div>
-		</nav>
+		</div>
 	);
 };
 

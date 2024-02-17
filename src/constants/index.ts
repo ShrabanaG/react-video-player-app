@@ -2,6 +2,11 @@ import { IoHomeOutline } from "react-icons/io5";
 import { RiPlayList2Line } from "react-icons/ri";
 import { MdFavoriteBorder } from "react-icons/md";
 
+import Avatar1 from "../assets/avatar1.png";
+import Avatar2 from "../assets/avatar2.png";
+import Avatar3 from "../assets/avatar3.png";
+import Avatar4 from "../assets/avatar4.png";
+
 export const sidebarMenuLinks = [
 	{
 		icon: IoHomeOutline,
@@ -19,60 +24,19 @@ export const sidebarMenuLinks = [
 
 export const sidebarChannelLinks = [
 	{
-		avatarInitials: "SG",
-		label: "Shrabana Goswami"
-	},
-	{
-		avatarInitials: "SJ",
+		imgSrc: Avatar4,
 		label: "Sanaah Jain"
 	},
 	{
-		avatarInitials: "AR",
+		imgSrc: Avatar2,
 		label: "Aakash Rigi Club"
 	},
 	{
-		avatarInitials: "IC",
+		imgSrc: Avatar3,
 		label: "Ishan C Rigi Club"
-	}
-];
-
-export const sidebarLinks = [
-	{
-		header: "Menu",
-		items: [
-			{
-				icon: IoHomeOutline,
-				label: "Home"
-			},
-			{
-				icon: RiPlayList2Line,
-				label: "Playlists"
-			},
-			{
-				icon: MdFavoriteBorder,
-				label: "Favorites"
-			}
-		]
 	},
 	{
-		header: "Subscriptions",
-		items: [
-			{
-				avatarInitials: "SG",
-				label: "Shrabana Goswami"
-			},
-			{
-				avatarInitials: "SJ",
-				label: "Sanaah Jain"
-			},
-			{
-				avatarInitials: "AR",
-				label: "Aakash Rigi Club"
-			},
-			{
-				avatarInitials: "IC",
-				label: "Ishan C Rigi Club"
-			}
-		]
+		imgSrc: Avatar1,
+		label: "Shrabana Goswami"
 	}
 ];

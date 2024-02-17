@@ -1,0 +1,36 @@
+/* Hide default controls in fullscreen mode */
+video::-webkit-media-controls {
+	display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+	display: none !important;
+}
+
+video::-webkit-media-controls-panel {
+	display: none !important;
+}
+
+video:-webkit-full-screen {
+	controls: none !important;
+}
+
+video:-moz-full-screen {
+	controls: none !important;
+}
+
+video:-ms-fullscreen {
+	controls: none !important;
+}
+
+video:fullscreen {
+	controls: none !important;
+}
+
+video::-webkit-full-screen-controls {
+	display: none !important;
+}
+
+video::-webkit-media-controls-overlay-play-button {
+	display: none !important;
+}
