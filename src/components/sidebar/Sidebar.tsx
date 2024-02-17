@@ -6,8 +6,14 @@ import { sidebarChannelLinks, sidebarMenuLinks } from "../../constants";
 import { Outlet } from "react-router-dom";
 import "./sidebar.css";
 import Topbar from "../topbar/Topbar";
+import { useTabIndex } from "../../hooks";
 
 const Sidebar = () => {
+	const [theme, setTheme] = useState("light");
+	const { index } = useTabIndex();
+	document.documentElement.classList.add("dark");
+	document.documentElement.classList.remove("dark");
+
 	return (
 		<div className="flex">
 			<nav className="sidebar">
@@ -17,9 +23,9 @@ const Sidebar = () => {
 				<div className="sidebar-links mt-14">
 					<div className="sidebar-header">Menu</div>
 					<ul>
-						{sidebarMenuLinks.map((link: SidebarMenuLinksProps) => (
-							<li className="flex py-2" key={link.label}>
-								<span className="text-[20px] flex-center">{<link.icon />}</span>
+						{sidebarMenuLinks.map((link: SidebarMenuLinksProps, idx: number) => (
+							<li className={"flex py-2 " + (idx === index ? "selected" : "") } key={link.label}>
+								<span className={"text-[20px] flex-center "+ (idx === index ? "selected-color" : "")} >{<link.icon />}</span>
 								<span className="sidebar-links-label">{link.label}</span>
 							</li>
 						))}

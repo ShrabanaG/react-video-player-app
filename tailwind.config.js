@@ -30,7 +30,8 @@ module.exports = {
 				white: "#FFFFFF",
 				red: "#FF0000",
 				darkBlack: "#1C1A1D",
-				green: "#00c853"
+				green: "#00c853",
+				darkSelectedTab: "#2D2E33"
 			}
 		}
 	},

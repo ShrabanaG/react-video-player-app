@@ -36,3 +36,16 @@
 .sidebar-premium-btn {
 	@apply rounded-full px-4 py-1 text-center uppercase text-[8px] font-bold border border-green text-green;
 }
+
+.selected {
+	width: 250px;
+	margin-left: -2rem;
+	padding-left: calc(2rem - 7px);
+	background-color: #2d2e33;
+	border-left: 7px solid #5f2c8c;
+	border-radius: 5px;
+}
+
+.selected-color {
+	color: #5f2c8c;
+}
