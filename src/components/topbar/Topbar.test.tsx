@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { useDarkMode } from "../../hooks";
 import Topbar from "./Topbar";
 
-jest.mock("../../hooks/useDarkMode");
+jest.mock("../../hooks/useDarkMode/useDarkMode");
 
 describe("Topbar Component Renders Correctly", () => {
 	test("renders upload button, user avatar, and theme toggle", () => {
