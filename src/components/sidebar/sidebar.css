@@ -46,8 +46,8 @@
 }
 
 .sidebar-premium-container {
-	@apply flex flex-col rounded-[10px] justify-center text-center items-center bottom-8 gap-2  px-3 py-6 mt-6 dark:bg-darkBlack;
-	width: calc(100% - 4rem);
+	@apply flex flex-col rounded-[10px]  justify-center text-center items-center bottom-8 gap-2  px-3 py-6 mt-6 dark:bg-darkBlack;
+	width: calc(100% - 1rem);
 }
 
 .sidebar-premium-btn {
