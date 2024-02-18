@@ -4,7 +4,7 @@
 
 /* sidebar */
 .sidebar {
-	@apply hidden md:block  relative h-screen py-14 px-8 bg-white dark:bg-lightBlack text-primary-50 dark:text-white w-[250px];
+	@apply hidden md:block  fixed overflow-scroll h-screen py-14 px-8 bg-white dark:bg-lightBlack text-primary-50 dark:text-white w-[250px];
 }
 
 .logo-container {

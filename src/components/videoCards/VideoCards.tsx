@@ -24,7 +24,7 @@ const VideoCard: FC<{ video: Video; size: "large" | "small" | "extra-small"; rem
 			videoPlayerRef.current.currentTime = video.watched_time ? video.watched_time : 0;
 			videoPlayerRef.current.play();
 		}
-	}, [removeThumbnail, video.watched_time]);
+	}, [removeThumbnail, video?.watched_time]);
 
 	const handleMouseLeave = useCallback(() => {
 		setIsVideoPlaying(false);

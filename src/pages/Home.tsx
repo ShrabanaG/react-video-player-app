@@ -17,6 +17,10 @@ const Home = () => {
 		setSelectedTab(TAB_INDEX.Home);
 	}, [setSelectedTab]);
 
+	if (allVideos.length === 0) {
+		return <></>;
+	}
+
 	return (
 		<div className="home p-8">
 			<div className="home-width">

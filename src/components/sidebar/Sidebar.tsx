@@ -68,7 +68,7 @@ const Sidebar = () => {
 				<div className="flex flex-col w-full">
 					<Topbar />
 				</div>
-				<main>
+				<main className="ml-[250px]">
 					<Outlet />
 				</main>
 			</div>
