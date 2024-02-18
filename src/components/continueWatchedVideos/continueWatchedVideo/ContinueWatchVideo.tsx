@@ -9,7 +9,7 @@ const ContinueWatchedVideo: FC<ContinueWatchingVideoProps> = ({ video }: Continu
 
 	const handleVideoClick = useCallback(() => {
 		navigate(`/video?vid=${video.id}`);
-	}, [navigate, video.id]);
+	}, [navigate, video?.id]);
 
 	return (
 		<div className="continue-watched-video">

@@ -7,10 +7,11 @@ import { Outlet } from "react-router-dom";
 import "./sidebar.css";
 import Topbar from "../topbar/Topbar";
 import { useTabIndex } from "../../hooks";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
 	const { index } = useTabIndex();
-
+	const navigate = useNavigate();
 	return (
 		<div className="flex">
 			<nav className="sidebar">
@@ -25,6 +26,7 @@ const Sidebar = () => {
 								className={"flex py-2 " + (idx === index ? "selected" : "")}
 								key={link.label}
 								data-testid="menu-links"
+								onClick={() => { link.label === "Home" ? navigate("/") : null }}
 							>
 								{idx === index ? (
 									<span className={"text-[20px] flex-center selected-link-icon"}>

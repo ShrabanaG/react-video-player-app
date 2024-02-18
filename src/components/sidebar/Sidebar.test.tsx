@@ -2,10 +2,15 @@ import { render, screen } from "@testing-library/react";
 import Sidebar from "./Sidebar";
 import { sidebarChannelLinks, sidebarMenuLinks } from "../../constants";
 import { SidebarChannelProps, SidebarMenuLinksProps } from "../../types";
+import { BrowserRouter } from "react-router-dom";
 
 describe("Sidebar Component Renders Correctly", () => {
 	test("Renders Logo and menu links", () => {
-		render(<Sidebar />);
+		render(
+			<BrowserRouter>
+				<Sidebar />
+			</BrowserRouter>
+		);
 
 		// Check if logo is rendered
 		const logo = screen.getByAltText("video-logo");
@@ -22,8 +27,11 @@ describe("Sidebar Component Renders Correctly", () => {
 	});
 
 	test("renders channels and premium section", () => {
-		render(<Sidebar />);
-
+		render(
+			<BrowserRouter>
+				<Sidebar />
+			</BrowserRouter>
+		);
 		// Check if channel links are rendered
 		const channelLinks = screen.getAllByTestId("channel-links");
 		expect(channelLinks).toHaveLength(sidebarChannelLinks.length);
