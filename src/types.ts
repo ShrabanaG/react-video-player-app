@@ -14,6 +14,7 @@ export type SidebarLinksProps = {
 };
 
 export type SidebarMenuLinksProps = {
+	outlinedIcon: React.ElementType;
 	icon: React.ElementType;
 	label: string;
 };

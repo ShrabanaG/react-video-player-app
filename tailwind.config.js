@@ -25,13 +25,21 @@ module.exports = {
 					40: "#E2DAEB",
 					30: "#E5DEED"
 				},
+				border: {
+					dark: "#2D2E33",
+					light: "#E8EAF6"
+				},
 				lightBlack: "#262428",
-				black: "#202135",
+				black: "#1C1A1D",
+				greyBlack: "#bdbdbd",
 				white: "#FFFFFF",
+				lightWhite: "#e0e0e0",
 				red: "#FF0000",
-				darkBlack: "#1C1A1D",
+				darkBlack: "#000000",
 				green: "#00c853",
-				darkSelectedTab: "#2D2E33"
+				darkSelectedTab: "#2D2E33",
+				purple: "#5F2C8C",
+				lightGrey: "#424242"
 			}
 		}
 	},

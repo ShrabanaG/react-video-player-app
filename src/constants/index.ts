@@ -1,6 +1,6 @@
-import { IoHomeOutline } from "react-icons/io5";
-import { RiPlayList2Line } from "react-icons/ri";
-import { MdFavoriteBorder } from "react-icons/md";
+import { IoHomeOutline, IoHome } from "react-icons/io5";
+import { RiPlayList2Line, RiPlayListFill } from "react-icons/ri";
+import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 
 import Avatar1 from "../assets/avatar1.png";
 import Avatar2 from "../assets/avatar2.png";
@@ -9,15 +9,18 @@ import Avatar4 from "../assets/avatar4.png";
 
 export const sidebarMenuLinks = [
 	{
-		icon: IoHomeOutline,
+		outlinedIcon: IoHomeOutline,
+		icon: IoHome,
 		label: "Home"
 	},
 	{
-		icon: RiPlayList2Line,
+		outlinedIcon: RiPlayList2Line,
+		icon: RiPlayListFill,
 		label: "Playlists"
 	},
 	{
-		icon: MdFavoriteBorder,
+		outlinedIcon: MdFavoriteBorder,
+		icon: MdFavorite,
 		label: "Favorites"
 	}
 ];

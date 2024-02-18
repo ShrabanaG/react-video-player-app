@@ -7,5 +7,5 @@
 }
 
 .topbar-upload-btn {
-	@apply px-12 py-2 border-2 rounded-full border-primary-50 text-purple-400 uppercase dark:text-white font-semibold text-[14px];
+	@apply px-12 py-2 border-2 rounded-full border-primary-50 text-purple uppercase dark:text-white font-semibold text-[14px];
 }

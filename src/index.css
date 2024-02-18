@@ -19,6 +19,7 @@
 		font-optical-sizing: auto;
 		font-weight: 400;
 		font-style: normal;
+		@apply dark:bg-black;
 	}
 }
 
@@ -30,4 +31,8 @@
 	.flex-between {
 		@apply flex justify-between items-center;
 	}
+}
+
+.channels-avatar {
+	@apply w-6 h-6 flex items-center justify-center rounded-full bg-primary-40 text-[14px] dark:text-black dark:font-semibold;
 }

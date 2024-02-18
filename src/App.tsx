@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { Sidebar } from "./components";
 import { Home } from "./pages";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { UIContextProvider } from "./contexts";
+import PlayVideo from "./pages/playVideo/PlayVideo";
 
 function App() {
 	useEffect(() => {
@@ -11,14 +13,19 @@ function App() {
 		}
 	}, []);
 
+	console.log("theme", localStorage.getItem("theme"));
+
 	return (
 		<div className="app">
 			<BrowserRouter>
-				<Routes>
-					<Route element={<Sidebar />}>
-						<Route path="/" element={<Home />} />
-					</Route>
-				</Routes>
+				<UIContextProvider>
+					<Routes>
+						<Route element={<Sidebar />}>
+							<Route path="/" element={<Home />} />
+							<Route path="/video" element={<PlayVideo />} />
+						</Route>
+					</Routes>
+				</UIContextProvider>
 			</BrowserRouter>
 		</div>
 	);

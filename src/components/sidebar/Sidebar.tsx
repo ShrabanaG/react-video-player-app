@@ -9,10 +9,7 @@ import Topbar from "../topbar/Topbar";
 import { useTabIndex } from "../../hooks";
 
 const Sidebar = () => {
-	const [theme, setTheme] = useState("light");
 	const { index } = useTabIndex();
-	document.documentElement.classList.add("dark");
-	document.documentElement.classList.remove("dark");
 
 	return (
 		<div className="flex">
@@ -20,18 +17,19 @@ const Sidebar = () => {
 				<div className="logo-container">
 					<img src={Logo} alt="video-logo" />
 				</div>
-				<div className="sidebar-links mt-14">
+				<div className="sidebar-links mt-14 cursor-pointer">
 					<div className="sidebar-header">Menu</div>
 					<ul>
 						{sidebarMenuLinks.map((link: SidebarMenuLinksProps, idx: number) => (
 							<li className={"flex py-2 " + (idx === index ? "selected" : "") } key={link.label}>
-								<span className={"text-[20px] flex-center "+ (idx === index ? "selected-color" : "")} >{<link.icon />}</span>
+								{idx === index ? <span className={"text-[20px] flex-center selected-link-icon"} >{<link.icon />}</span> :
+								<span className="text-[20px] flex-center " >{<link.outlinedIcon />}</span>}
 								<span className="sidebar-links-label">{link.label}</span>
 							</li>
 						))}
 					</ul>
 				</div>
-				<div className="sidebar-channels mt-14">
+				<div className="sidebar-channels mt-14 cursor-pointer">
 					<div className="sidebar-header">Channels</div>
 					<ul>
 						{sidebarChannelLinks.map((eachLink: SidebarChannelProps) => {
