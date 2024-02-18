@@ -21,9 +21,18 @@ const Sidebar = () => {
 					<div className="sidebar-header">Menu</div>
 					<ul>
 						{sidebarMenuLinks.map((link: SidebarMenuLinksProps, idx: number) => (
-							<li className={"flex py-2 " + (idx === index ? "selected" : "") } key={link.label}>
-								{idx === index ? <span className={"text-[20px] flex-center selected-link-icon"} >{<link.icon />}</span> :
-								<span className="text-[20px] flex-center " >{<link.outlinedIcon />}</span>}
+							<li
+								className={"flex py-2 " + (idx === index ? "selected" : "")}
+								key={link.label}
+								data-testid="menu-links"
+							>
+								{idx === index ? (
+									<span className={"text-[20px] flex-center selected-link-icon"}>
+										{<link.icon />}
+									</span>
+								) : (
+									<span className="text-[20px] flex-center ">{<link.outlinedIcon />}</span>
+								)}
 								<span className="sidebar-links-label">{link.label}</span>
 							</li>
 						))}
@@ -34,11 +43,11 @@ const Sidebar = () => {
 					<ul>
 						{sidebarChannelLinks.map((eachLink: SidebarChannelProps) => {
 							return (
-								<li className="flex py-2" key={eachLink.label}>
+								<li className="flex py-2" key={eachLink.label} data-testid="channel-links">
 									<span>
 										<img
 											src={eachLink.imgSrc}
-											alt="avatar-img"
+											alt={`${eachLink.label}-avatar`}
 											className="sidebar-channels-avatar"
 										/>
 									</span>

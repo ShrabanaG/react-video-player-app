@@ -24,7 +24,11 @@ const Topbar = () => {
 				</span>
 				<span className="ml-2 text-primary-500 font-semibold flex-center dark:text-white">Hii Rigi</span>
 			</div>
-			<div className="bg-primary-30 border-2 text-primary-50 rounded-full p-2 cursor-pointer" onClick={toggle}>
+			<div
+				data-testid="theme-toggle"
+				className="bg-primary-30 border-2 text-primary-50 rounded-full p-2 cursor-pointer"
+				onClick={toggle}
+			>
 				{theme === "dark" && <MdOutlineLightMode fontSize={20} />}
 				{theme === "light" && <MdOutlineModeNight fontSize={20} />}
 			</div>
