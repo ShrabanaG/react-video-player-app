@@ -370,9 +370,6 @@ const VideoPlayer: FC<VideoPlayerProps> = ({ src, video_id }: VideoPlayerProps):
 							<div className="cursor-pointer text-white" onClick={togglePictureInPicture}>
 								<CgMiniPlayer className="text-[20px] mt-[3px]" />
 							</div>
-							<div className="cursor-pointer text-white" onClick={handleLoopToggle}>
-								<MdLoop className="text-[20px] mt-[3px]" />
-							</div>
 							<div className="cursor-pointer text-white" onClick={handleDownload}>
 								<FaDownload className="text-[15px] mt-1" />
 							</div>

@@ -46,10 +46,10 @@
 }
 
 .sidebar-premium-container {
-	@apply flex flex-col rounded-[10px] justify-center text-center absolute items-center bottom-8 gap-2  px-3 py-6 mt-6 dark:bg-darkBlack;
+	@apply flex flex-col rounded-[10px] justify-center text-center items-center bottom-8 gap-2  px-3 py-6 mt-6 dark:bg-darkBlack;
 	width: calc(100% - 4rem);
 }
 
 .sidebar-premium-btn {
-	@apply rounded-full px-4 py-1 text-center uppercase text-[8px] font-bold border border-green text-green;
+	@apply rounded-full px-4 py-1 text-center uppercase text-[4px] font-bold border border-green text-green;
 }
