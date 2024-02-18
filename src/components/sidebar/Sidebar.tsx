@@ -63,7 +63,7 @@ const Sidebar = () => {
 					<div className="text-[16px] font-semibold dark:text-white">
 						Get 3 months of <br /> Premium for free
 					</div>
-					<button className="text-[14px] mt-6 sidebar-premium-btn">Get Premium</button>
+					<button className="text-[14px] mt-6 sidebar-premium-btn" onClick={() => window.open("https://play.google.com/store/apps/details?id=com.rigiapp&hl=en_IN&gl=US&pli=1", "_blank")}>Get Premium</button>
 				</div>
 			</nav>
 			<div className="block flex-grow">
