@@ -5,7 +5,7 @@ import Video from "./video/Video";
 
 const AllVideos: FC<AllVideosProps> = ({ videos }: AllVideosProps): JSX.Element => {
 	return (
-		<div className="all-videos flex gap-4">
+		<div className="all-videos flex flex-wrap  items-start gap-4 justify-start">
 			{videos.map((video: VideoType, index: number) => {
 				return <Video video={video} key={index} />;
 			})}

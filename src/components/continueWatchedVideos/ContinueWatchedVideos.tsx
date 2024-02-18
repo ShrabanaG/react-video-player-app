@@ -7,7 +7,7 @@ const ContinueWatchedVideos: FC<ContinueWatchingVideosProps> = ({
 	videos
 }: ContinueWatchingVideosProps): JSX.Element => {
 	return (
-		<div className="watching-videos flex gap-4">
+		<div className="watching-videos flex items-center  justify-start flex-wrap gap-10">
 			{videos.map((video: Video, index: number) => {
 				return <ContinueWatchedVideo video={video} key={index} />;
 			})}

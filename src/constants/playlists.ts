@@ -15,10 +15,5 @@ export const PLAYLISTS = [
 		playlist_id: 1,
 		playlist_name: "Indie Alternative",
 		videoIds: [11, 12, 13, 14, 15]
-	},
-	{
-		playlist_id: 1,
-		playlist_name: "Billboard's Top 5",
-		videoIds: [16, 17, 18, 19, 20]
 	}
 ];

@@ -10,11 +10,15 @@ import { MdFullscreen } from "react-icons/md";
 import { FaDownload } from "react-icons/fa6";
 import { MdLoop } from "react-icons/md";
 import { CgMiniPlayer } from "react-icons/cg";
+import { useNavigate } from "react-router-dom";
 import { MdOutlineSpeed } from "react-icons/md";
 import "./videoPlayer.css";
 
-const VideoPlayer: FC<VideoPlayerProps> = ({ src }: VideoPlayerProps): JSX.Element => {
+const VideoPlayer: FC<VideoPlayerProps> = ({ src, video_id }: VideoPlayerProps): JSX.Element => {
+	const navigate = useNavigate();
+	const [currentSource, setCurrentSource] = useState(src);
 	const [isVideoPlaying, setIsVideoPlaying] = useState<boolean>();
+	const [isFirstTimePlaying, setIsFirstTimePlaying] = useState<boolean>(true);
 	const { thumbnail, captureThumbnail, removeThumbnail } = useThumbnail();
 	const [volume, setVolume] = useState<number>(1);
 	const [autoPlay, setAutoPlay] = useState<boolean>(false);
@@ -29,7 +33,20 @@ const VideoPlayer: FC<VideoPlayerProps> = ({ src }: VideoPlayerProps): JSX.Eleme
 
 	const togglePlay = useCallback(() => {
 		if (videoPlayerRef?.current?.paused) {
-			videoPlayerRef.current.currentTime = 0;
+			if (isFirstTimePlaying) {
+				const lastPlayedDuration = localStorage.getItem("@last_played_duration");
+				console.log(
+					"JSON.parse(lastPlayedDuration)[String(video_id)]",
+					JSON.parse(lastPlayedDuration as string)[String(video_id)]
+				);
+				if (lastPlayedDuration && JSON.parse(lastPlayedDuration)[String(video_id)]) {
+					videoPlayerRef.current.currentTime = JSON.parse(lastPlayedDuration)[String(video_id)];
+				} else {
+					videoPlayerRef.current.currentTime = 0;
+				}
+				setIsFirstTimePlaying(false);
+			}
+
 			videoPlayerRef.current.play();
 			setIsVideoPlaying(true);
 		} else {
@@ -37,7 +54,7 @@ const VideoPlayer: FC<VideoPlayerProps> = ({ src }: VideoPlayerProps): JSX.Eleme
 			setIsVideoPlaying(false);
 		}
 		removeThumbnail();
-	}, [removeThumbnail]);
+	}, [isFirstTimePlaying, removeThumbnail, video_id]);
 
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent) => {
@@ -210,12 +227,25 @@ const VideoPlayer: FC<VideoPlayerProps> = ({ src }: VideoPlayerProps): JSX.Eleme
 		return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
 	};
 
+	useEffect(() => {
+		const lastPlayedDuration = localStorage.getItem("@last_played_duration");
+		if (currentTime < totalTime && isFirstTimePlaying === false) {
+			localStorage.setItem(
+				"@last_played_duration",
+				JSON.stringify({
+					...(lastPlayedDuration ? JSON.parse(lastPlayedDuration as string) : {}),
+					[video_id]: currentTime
+				})
+			);
+		}
+	}, [currentTime, isFirstTimePlaying, totalTime, video_id]);
+
 	return (
 		<div className="video-player" style={{ width: "600px", height: "300x" }}>
 			<div id="wrap" style={{ position: "relative", width: "100%", height: "350px" }}>
 				<video
 					ref={videoPlayerRef}
-					src={src}
+					src={currentSource}
 					controls={false}
 					onLoadedData={() => captureThumbnail(videoPlayerRef)}
 					style={{ width: "100%", height: "100%", objectFit: "cover" }}
@@ -239,25 +269,27 @@ const VideoPlayer: FC<VideoPlayerProps> = ({ src }: VideoPlayerProps): JSX.Eleme
 					/>
 				)}
 				<div className="bg-darkBlack rounded-b-[5px]">
-					<div className="relative -mt-[14px]">
-						<input
-							type="range"
-							className="appearance-none w-full h-1 bg-gray-400 rounded-full mt-1 outline-none focus:outline-none"
-							min="0"
-							max={totalTime}
-							value={currentTime}
-							onChange={handleSliderChange}
-							onMouseDown={handleSliderMouseDown}
-							onMouseUp={handleSliderMouseUp}
-							style={{
-								background: `linear-gradient(to right, blue ${
-									(currentTime / totalTime) * 100
-								}%, white ${(currentTime / totalTime) * 100}%)`,
-								marginTop: "-30px",
-								transition: isVideoPlaying ? "none" : "all 0.3s ease-out"
-							}}
-						/>
-					</div>
+					{isFirstTimePlaying ? null : (
+						<div className="relative -mt-[14px]">
+							<input
+								type="range"
+								className="appearance-none w-full h-1 bg-gray-400 rounded-full mt-1 outline-none focus:outline-none"
+								min="0"
+								max={totalTime}
+								value={currentTime}
+								onChange={handleSliderChange}
+								onMouseDown={handleSliderMouseDown}
+								onMouseUp={handleSliderMouseUp}
+								style={{
+									background: `linear-gradient(to right, blue ${
+										(currentTime / totalTime) * 100
+									}%, white ${(currentTime / totalTime) * 100}%)`,
+									marginTop: "-30px",
+									transition: isVideoPlaying ? "none" : "all 0.3s ease-out"
+								}}
+							/>
+						</div>
+					)}
 					<div className="flex justify-between items-center pt-2 pb-3 px-3">
 						<div className="flex gap-2">
 							<div onClick={togglePlay}>
@@ -350,36 +382,6 @@ const VideoPlayer: FC<VideoPlayerProps> = ({ src }: VideoPlayerProps): JSX.Eleme
 						</div>
 					</div>
 				</div>
-				<div onClick={togglePlay}>{isVideoPlaying ? "Pause" : "Play"}</div>
-				<button onClick={toggleAutoPlay}>{autoPlay ? "Disable Autoplay" : "Enable Autoplay"}</button>
-				<input
-					type="range"
-					min="0"
-					max={totalTime}
-					value={currentTime}
-					onChange={handleSliderChange}
-					onMouseDown={handleSliderMouseDown}
-					onMouseUp={handleSliderMouseUp}
-					style={{ transition: isVideoPlaying ? "none" : "all 0.3s ease-out" }}
-				/>
-				<div>
-					{formatTime(Number(currentTime.toFixed(0)))} / {formatTime(Number(totalTime.toFixed(0)))}
-				</div>
-				<button onClick={toggleFullscreen}>Toggle Fullscreen</button>
-				<select
-					value={playbackSpeed}
-					onChange={(event: React.ChangeEvent<HTMLSelectElement>) =>
-						handlePlaybackSpeedChange(parseFloat(event.target.value))
-					}
-				>
-					<option value={0.5}>0.5x</option>
-					<option value={1}>1x</option>
-					<option value={1.5}>1.5x</option>
-					<option value={2}>2x</option>
-				</select>
-				<button onClick={togglePictureInPicture}>Toggle Picture-in-Picture</button>
-				<button onClick={handleLoopToggle}>{isLooping ? "Disable Looping" : "Enable Looping"}</button>
-				<button onClick={handleDownload}>Download</button>
 			</div>
 		</div>
 	);
