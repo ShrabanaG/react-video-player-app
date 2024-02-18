@@ -35,10 +35,7 @@ const VideoPlayer: FC<VideoPlayerProps> = ({ src, video_id }: VideoPlayerProps):
 		if (videoPlayerRef?.current?.paused) {
 			if (isFirstTimePlaying) {
 				const lastPlayedDuration = localStorage.getItem("@last_played_duration");
-				console.log(
-					"JSON.parse(lastPlayedDuration)[String(video_id)]",
-					JSON.parse(lastPlayedDuration as string)[String(video_id)]
-				);
+
 				if (lastPlayedDuration && JSON.parse(lastPlayedDuration)[String(video_id)]) {
 					videoPlayerRef.current.currentTime = JSON.parse(lastPlayedDuration)[String(video_id)];
 				} else {

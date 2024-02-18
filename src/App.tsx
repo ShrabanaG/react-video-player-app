@@ -16,7 +16,7 @@ function App() {
 	console.log("theme", localStorage.getItem("theme"));
 
 	return (
-		<div className="app">
+		<div className="app ">
 			<BrowserRouter>
 				<UIContextProvider>
 					<Routes>
