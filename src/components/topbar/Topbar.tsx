@@ -6,6 +6,8 @@ import { RiVideoUploadLine } from "react-icons/ri";
 import { MdOutlineLightMode, MdOutlineModeNight } from "react-icons/md";
 import { GiLighthouse } from "react-icons/gi";
 import "./topbar.css";
+import { FaGithub } from "react-icons/fa";
+
 
 const Topbar = () => {
 	const { theme, toggle } = useDarkMode();
@@ -17,6 +19,9 @@ const Topbar = () => {
 				<span className="ml-3">
 					<RiVideoUploadLine fontSize={20} />
 				</span>
+			</div>
+			<div className="">
+				<div className="cursor-pointer text-[35px] mb-1 dark:text-white text-violet" onClick={() => window.open("https://github.com/ShrabanaG/react-video-player-app")}><FaGithub /></div>
 			</div>
 			<div className="">
 				<div className="cursor-pointer text-[35px] mb-1 dark:text-white text-violet" onClick={() => window.open("https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Freact-video-player-60552.web.app%2F&strategy=mobile&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext")}><GiLighthouse /></div>

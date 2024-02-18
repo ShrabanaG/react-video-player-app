@@ -3,7 +3,7 @@
 @tailwind components;
 
 .topbar {
-	@apply flex flex-grow w-full px-8 py-3 gap-16 justify-end items-end  h-fit;
+	@apply flex flex-grow w-full px-8 py-3 gap-10 justify-end items-end  h-fit;
 	width: calc(100vw);
 }
 

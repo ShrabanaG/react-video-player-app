@@ -74,3 +74,9 @@
 # TESTS
 
 ![Test Report](testReport.jpeg)
+
+# COVERAGE REPORT
+
+-   Can be found in coverage/lcov-report/index.htmk
+
+![Coverage Report](coverage.jpeg)
